@@ -1,0 +1,104 @@
+{
+  "frames" :[
+    {
+    "frameNumber" : 0,
+    "scene" : {
+      "camera" : {
+        "target" : [0, 2.5, 0],
+        "eye" : [0, 5.5, -30],
+        "worldUp" : [0, 1, 0],
+        "fov" : 19.5,
+        "width" : 400,
+        "height": 400
+      },
+      "primitives" : [
+        {
+          "shape" : "Sphere",
+          "name" : "Glass",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [2.95, -1, 3],
+            "rotate" : [0,27.5,0],
+            "scale" : [1.5,1.5,1.5]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "Glass",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [2.95, 4, 3],
+            "rotate" : [0,27.5,0],
+            "scale" : [1.5,1.5,1.5]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "short Cube",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [-2.95, -1, 3],
+            "rotate" : [0,-17.5,0],
+            "scale" : [1.5,1.5,1.5]
+          }
+        }
+      ],
+      "lights" : [
+        {
+          "shape" : "Sphere",
+          "name" : "Light Source",
+          "type" : "DiffuseAreaLight",
+          "lightColor" : [1,1,1],
+          "intensity" : 10,
+          "transform" : {
+            "translate" : [0,2,-5],
+            "rotate" : [90,0,0],
+            "scale" : [4,4,1]
+          },
+        "isDelta" : false,
+        "twoSided" : true
+        }
+      ],
+      "materials" : [
+        {
+          "type" : "MatteMaterial",
+          "name" : "matteWhite",
+            "Kd" : [0.85, 0.81, 0.78],
+          "sigma": 0
+        },
+        {
+          "type" : "MatteMaterial",
+          "name" : "matteRed",
+          "Kd" : [0.63, 0.065, 0.05],
+          "sigma": 0
+        },
+        {
+          "type" : "MatteMaterial",
+          "name" : "matteBlue",
+          "Kd" : [0.0, 0.0, 0.85],
+          "sigma": 0
+        },
+        {
+          "type" : "MatteMaterial",
+          "name" : "matteGreen",
+          "Kd" : [0.14, 0.45, 0.091],
+          "sigma": 0
+        },
+        {
+          "type" : "GlassMaterial",
+          "name" : "glassMaterial",
+          "Kt": [1,1,1],
+          "Kr" : [0,0,0],
+          "eta": 1.55
+        },
+        {
+          "type": "MirrorMaterial",
+          "name": "chromeMirror",
+          "Kr": [1, 1, 1],
+          "roughness": 0.05
+        }
+      ]
+    }
+  }
+]
+}
