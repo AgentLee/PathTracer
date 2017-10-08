@@ -150,7 +150,15 @@ glm::vec2 Cube::GetUVCoordinates(const glm::vec3 &point) const
 
 Intersection Cube::Sample(const Point2f &xi, Float *pdf) const
 {
-    return Intersection();
+    Point3f p(xi.x - 0.5f, xi.y - 0.5f, 0.f);
+
+    Intersection intersection = Intersection();
+
+    intersection.normalGeometric = glm::normalize(this->transform.invTransT() * Normal3f(0,0,1));
+
+    intersection.point = glm::vec3(this->transform.T() * glm::vec4(p, 1.f));
+
+    return intersection;
 }
 
 Bounds3f Cube::WorldBound() const

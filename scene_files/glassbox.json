@@ -11,6 +11,7 @@
         "width" : 400,
         "height": 400
       },
+      "hasMedium" : "true",
       "primitives" : [
         {
           "shape" : "SquarePlane",
@@ -45,7 +46,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "Back Wall",
-          "material" : "texturedMaterial",
+          "material" : "matteWhite",
           "transform" : {
             "translate" : [0,2.5,5],
             "rotate" : [0,180,0],

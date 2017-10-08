@@ -7,20 +7,19 @@
         "target" : [0, 2.5, 0],
         "eye" : [0, 5.5, -30],
         "worldUp" : [0, 1, 0],
-        "fov" : 45,
+        "fov" : 19.5,
         "width" : 400,
         "height": 400
-      }, 
-      "hasMedium" : "true",
+      },
       "primitives" : [
         {
           "shape" : "SquarePlane",
           "name" : "Floor",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [0, -7.5, 0],
+            "translate" : [0, -2.5, 0],
             "rotate" : [-90, 0, 0],
-            "scale" : [20, 20, 1]
+            "scale" : [10, 10, 1]
           }
         },
         {
@@ -28,19 +27,19 @@
           "name" : "Red wall",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [10,2.5,0],
+            "translate" : [5,2.5,0],
             "rotate" : [0, -90, 0],
-            "scale" : [20, 20, 1]
+            "scale" : [10, 10, 1]
           }
         },
         {
           "shape" : "SquarePlane",
-          "name" : "Blue Wall",
+          "name" : "Green Wall",
           "material" : "matteGreen",
           "transform" : {
-            "translate" : [-10, 2.5, 0],
+            "translate" : [-5, 2.5, 0],
             "rotate" : [0,90,0],
-            "scale" : [20, 20, 1]
+            "scale" : [10, 10, 1]
           }
         },
         {
@@ -48,9 +47,9 @@
           "name" : "Back Wall",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [0,2.5,10],
+            "translate" : [0,2.5,5],
             "rotate" : [0,180,0],
-            "scale" : [20, 20, 1]
+            "scale" : [10, 10, 1]
           }
         },
         {
@@ -58,19 +57,9 @@
           "name" : "Ceiling Wall",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [0, 12.5, 0],
+            "translate" : [0, 7.5, 0],
             "rotate" : [90,0,0],
-            "scale" : [20, 20, 1]
-          }
-        },
-        {
-          "shape" : "Sphere",
-          "name" : "Glass",
-          "material" : "mattePurple",
-          "transform" : {
-            "translate" : [5.25, -4.25, 4.25],
-            "rotate" : [0,27.5,0],
-            "scale" : [3,3,3]
+            "scale" : [10, 10, 1]
           }
         },
         {
@@ -78,26 +67,27 @@
           "name" : "short Cube",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [-5.25, -4.25, -4],
+            "translate" : [-2, -1, 0.75],
             "rotate" : [0,-17.5,0],
-            "scale" : [3,3,3]
-          }
+            "scale" : [1,1,1]
+          },
+          "hasMedium" : "true"
         }
       ],
       "lights" : [
         {
-          "shape" : "Sphere",
+          "shape" : "SquarePlane",
           "name" : "Light Source",
           "type" : "DiffuseAreaLight",
-          "lightColor" : [4,12,17],
+          "lightColor" : [1,1,1],
           "intensity" : 5,
           "transform" : {
-            "translate" : [-6.2, -5.75, 5],
+            "translate" : [0,7.45,0],
             "rotate" : [90,0,0],
-            "scale" : [2, 2, 2]
+            "scale" : [3, 3, 1]
           },
         "isDelta" : false,
-        "twoSided" : false
+        "twoSided" : true
         }
       ],
       "materials" : [
@@ -109,14 +99,14 @@
         },
         {
           "type" : "MatteMaterial",
-          "name" : "matteRed",
-          "Kd" : [0.63, 0.065, 0.05],
+          "name" : "pureWhite",
+            "Kd" : [1,1,1],
           "sigma": 0
         },
         {
           "type" : "MatteMaterial",
-          "name" : "matteBlue",
-          "Kd" : [0.0, 0.0, 0.85],
+          "name" : "matteRed",
+          "Kd" : [0.63, 0.065, 0.05],
           "sigma": 0
         },
         {
@@ -126,30 +116,10 @@
           "sigma": 0
         },
         {
-          "type" : "GlassMaterial",
-          "name" : "glassMaterial",
-          "Kt": [1,1,1],
-          "Kr" : [0,0,0],
-          "eta": 1.55
-        },
-        {
-            "type" : "MatteMaterial",
-            "name" : "mattePurple",
-            "Kd" : [0.71, 0.05, 0.91],
-            "sigma": 0
-          },
-                  {
-          "type": "GlassMaterial",
-          "name": "transmissiveMaterial",
-          "Kt": [1,1,1],
-          "Kr": [1, 1, 1],
-          "eta": 1.55
-        },
-        {
-          "type": "MirrorMaterial",
-          "name": "chromeMirror",
-          "Kr": [1, 1, 1],
-          "roughness": 0.05
+          "type" : "MatteMaterial",
+          "name" : "jade",
+          "Kd" : [.54, .81, .61],
+          "sigma": 0
         }
       ]
     }

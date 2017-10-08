@@ -12,8 +12,8 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
     // Check for specularity
     bool specularBounce = false;
 
-    float sigmaA    = 0.000f;
-    float sigmaS    = 0.008f;
+    float sigmaA    = 0.006f;
+    float sigmaS    = 0.009f;
     float g         = 0.f;
     Color3f mediumColor(0.5f);
     Medium medium(sigmaA, sigmaS, g, mediumColor);
@@ -48,6 +48,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
             if(!intersects) {
                 rmEnd = Point3f(r.direction.x * 50.f, r.direction.y * 50.f, r.direction.z * 50.f);
             }
+            // Subsurface Test
             else if(intersects && intersection.objectHit->hasMedium){
                 objectMedium = true;
 
@@ -83,7 +84,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
             //-----------------------------------------------------
 
             // Set up variables for ray march
-            float stepSize = 1.f;
+            float stepSize = .1f;
             // Get the distance between the origin and the object hit
             // rmOrigin should initially be at the camera
             float tmax = glm::distance(rmOrigin, rmEnd);
@@ -175,17 +176,20 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
                 inScatter += (Color3f(TrToPoint) * medium.sigma_s * Ls);
             }
 
-            beta *= Color3f(medium.Transmittance(r.origin, intersection.point) * medium.sigma_s);
+//            beta *= Color3f(medium.Transmittance(r.origin, intersection.point) * medium.sigma_s);
             L += inScatter;
         }
 
-        if(objectMedium) {
-            depth--;
+        // Subsurface Scattering
+//        if(objectMedium) {
+//            depth--;
 
-            continue;
-        }
+//            continue;
+//        }
 
+        //-----------------------------------------------------
         // Full Lighting
+        //-----------------------------------------------------
 
         if(!intersects) {
             break;
@@ -194,11 +198,8 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
         bool producedBSDF = intersection.ProduceBSDF();
         if(!producedBSDF) {
             if (depth == recursionLimit || specularBounce) {
-                if(scene.hasMedium) {
-                    L += beta * Color3f(medium.Transmittance(r.origin, intersection.point)) * medium.sigma_a * intersection.Le(wo);
-                } else {
-                    L += beta * intersection.Le(wo);
-                }
+                // Caustics
+                L += beta * intersection.Le(wo);
             } else {
                 for(int i = 0; i < scene.lights.size(); i++) {
                     if(scene.hasMedium) {
@@ -218,7 +219,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
             lightColor = EstimateDirectLighting(r, scene, sampler, intersection);
         }
 
-        L += beta * lightColor;
+        L += beta * medium.Transmittance(r.origin, intersection.point) * lightColor;
 
         //-----------------------------------------------------
         // Global Illumination
@@ -235,6 +236,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
 
         // Update throughput for next bounce
         beta *= gi;
+//        beta *= medium.Transmittance(r.origin, intersection.point);
 
         specularBounce = (giSampledType & BSDF_SPECULAR);
 
