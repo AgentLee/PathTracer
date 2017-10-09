@@ -4,46 +4,65 @@
     "frameNumber" : 0,
     "scene" : {
       "camera" : {
-        "target" : [0, 2.5, 0],
-        "eye" : [0, 5.5, -30],
+        "target" : [0,0, 0],
+        "eye" : [-10, 10, -20],
         "worldUp" : [0, 1, 0],
         "fov" : 19.5,
         "width" : 400,
-        "height": 400
+        "height": 400,
+        "focalDistance" : 0,
+        "lensRadius" : 0
       },
-      "hasMedium" : "true",
+      "csg" : "true",
+      "medium" : {  
+          "sigmaA" : 0,
+          "sigmaS" : 0,
+          "sigmaT" : 0
+        },
       "primitives" : [
         {
           "shape" : "SquarePlane",
           "name" : "Floor",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [0, -2.5, 0],
+            "translate" : [0, -1.5, 0],
             "rotate" : [-90, 0, 0],
             "scale" : [10, 10, 1]
           }
         },
         {
           "shape" : "Sphere",
-          "name" : "transmissive sphere",
-          "material" : "transmissiveMaterial",
+          "name" : "Sphere",
+          "material" : "matteGreen",
           "transform" : {
-            "translate" : [0, 3, 0],
+            "translate" : [0, 0, 0],
+            "rotate" : [0,45,0],
+            "scale" : [1.5,1.5,1.5]
+          },
+          "csg" : "true"
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "Sphere",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [0,1,-1],
             "rotate" : [0,0,0],
-            "scale" : [3, 3, 3]
-          }
+            "scale" : [1,1,1]
+          },
+          "csg" : "true"
         }
       ],
       "lights" : [
         {
           "shape" : "SquarePlane",
-          "name" : "Light Source",
+          "name" : "Light Source Blue",
           "type" : "DiffuseAreaLight",
-          "lightColor" : [1,1,1],
-          "intensity" : 30,
+          "lightColor" : [4,12,17],
+          "intensity" : 3,
           "transform" : {
-            "translate" : [0,7.45,0],
-            "rotate" : [90,0,0],
+            "translate" : [0,7.45,-5],
+            "rotate" : [45,0,0],
             "scale" : [3, 3, 1]
           },
           "isDelta" : false,
@@ -68,20 +87,8 @@
           "name" : "matteGreen",
           "Kd" : [0.14, 0.45, 0.091],
           "sigma": 0
-        },
-        {
-          "type": "GlassMaterial",
-          "name": "transmissiveMaterial",
-          "Kt": [1, 1, 1],
-          "Kr": [1, 1, 1],
-          "eta": 1.55
-        },
-        {
-          "type": "MatteMaterial",
-          "name": "texturedMaterial",
-          "Kd": [1, 1, 1],
-          "textureMap": "tex_nor_maps/whitebubble.jpg"
         }
+
       ]
     }
   }

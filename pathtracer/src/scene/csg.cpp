@@ -66,7 +66,7 @@ CSG::CSG(const std::vector<std::shared_ptr<Primitive> > &p)
 
     // TODO
     // Handle more than two objects
-    root        = new CSGNode(DIFF);
+    root        = new CSGNode();
     root->left  = new CSGNode(prims.at(0));     // Cube
     root->right = new CSGNode(prims.at(1));     // Sphere
 
@@ -229,6 +229,7 @@ bool CSG::diffOp(CSGNode *left, CSGNode *right, const Ray &r, Intersection *isec
             // we want to forget about any of those points.
             if(!_hitsLeftNode && _hitsRightNode) {
                 // Do nothing
+                return false;
             }
 
             // Hits left and right (Cube and Sphere)
@@ -253,6 +254,21 @@ bool CSG::intersectOp(CSGNode *left, CSGNode *right, const Ray &r, Intersection 
     Intersection lIsx, rIsx;
     bool hitsLeftNode   = left->prim->Intersect(r, &lIsx);
     bool hitsRightNode  = right->prim->Intersect(r, &rIsx);
+
+//    if(!hitsLeftNode && !hitsRightNode) {
+//        *isect = Intersection();
+//        return false;
+//    }
+
+//    if(hitsLeftNode && !hitsRightNode) {
+//        *isect = Intersection();
+//        return false;
+//    }
+
+//    if(hitsRightNode && !hitsLeftNode) {
+//        *isect = Intersection();
+//        return false;
+//    }
 
     // This is the only case we have to deal with for intersection.
     // The left and right nodes are both hit by the ray.
