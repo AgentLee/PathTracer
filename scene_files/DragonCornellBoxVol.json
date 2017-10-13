@@ -4,25 +4,27 @@
     "frameNumber" : 0,
     "scene" : {
       "camera" : {
-                    "target" : [0, 2.5, 0],
-                    "eye" : [0, 5.5, -30],
-                    "worldUp" : [0, 1, 0],
-                    "fov" : 19.5,
-                    "width" : 400,
-                    "height": 400,
-                    "lensRadius": 0,
-                    "focalDistance": 0
+        "target" : [0, 0, 1],
+        "eye" : [0, 6, -15],
+        "worldUp" : [0, 1, 0],
+        "fov" : 19.5,
+        "width" : 400,
+        "height": 400,
+        "lensRadius": 0,
+        "focalDistance": 0
       },
       "hasMedium" : "true",
       "primitives" : [
+        
         {
-          "shape" : "SquarePlane",
-          "name" : "Floor",
+          "shape" : "Mesh",
+          "name" : "Dragon",
+          "filename" : "obj_files/lucy.obj",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [0, -2.5, 0],
-            "rotate" : [-90, 0, 0],
-            "scale" : [10, 10, 1]
+            "translate" : [0, -2.5, 1.5],
+            "rotate" : [0,200,0],
+            "scale" : [.005,.005,.005]
           }
         },
         {
@@ -31,8 +33,8 @@
           "filename" : "obj_files/StanfordDragon.obj",
           "material" : "matteWhite",
           "transform" : {
-            "translate" : [0, -2.5, 1.5],
-            "rotate" : [0,200,0],
+            "translate" : [0, -3.7, 6],
+            "rotate" : [0,220,0],
             "scale" : [.5,.5,.5]
           }
         }
@@ -45,9 +47,9 @@
           "lightColor" : [4,12,17],
           "intensity" : 5,
           "transform" : {
-            "translate" : [0,7.45,0],
+            "translate" : [0,3,0],
             "rotate" : [90,0,0],
-            "scale" : [5,5, 1]
+            "scale" : [.5,.5, 1]
           },
         "isDelta" : false,
         "twoSided" : false

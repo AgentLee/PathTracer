@@ -55,7 +55,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
                 // Get the out point for the object
 
                 // Offset the point on the ray
-                Point3f p = rmOrigin + (1.f * glm::normalize(r.direction));
+                Point3f p = rmOrigin + (.0001f * glm::normalize(r.direction));
                 // Make a new ray
                 Ray subray = Ray(p, glm::normalize(r.direction));
 
@@ -71,7 +71,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
                 }
             }
             else {
-                rmEnd = intersection.point + glm::normalize(intersection.normalGeometric) * 0.01f;
+                rmEnd = intersection.point + glm::normalize(intersection.normalGeometric) * 0.0001f;
             }
 
             //-----------------------------------------------------
@@ -134,7 +134,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
 
                 // To determine the Ls term we have to do
                 // spherical sampling at the ray marched point.
-                int M = 25;
+                int M = 1;
                 for(int j = 0; j < M; j++) {
                     // Get a random point on on the sphere and use this as the direction
                     Point3f samplePoint = glm::normalize(WarpFunctions::squareToSphereUniform(sampler->Get2D()));
