@@ -13,11 +13,7 @@
         "lensRadius": 0,
         "focalDistance": 0
       },
-      "medium" : {  
-          "sigmaA" : 0,
-          "sigmaS" : 0,
-          "sigmaT" : 0
-        },
+      "hasMedium" : "true",
       "primitives" : [
         {
           "shape" : "SquarePlane",

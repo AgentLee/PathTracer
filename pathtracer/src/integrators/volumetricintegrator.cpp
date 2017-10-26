@@ -46,7 +46,7 @@ Color3f VolumetricIntegrator::Li(const Ray &ray, const Scene &scene, std::shared
 
         if(scene.hasMedium || (intersects && intersection.objectHit->hasMedium)) {
             if(!intersects) {
-                rmEnd = Point3f(r.direction.x * 50.f, r.direction.y * 50.f, r.direction.z * 50.f);
+                rmEnd = Point3f(r.direction.x * 200.f, r.direction.y * 200.f, r.direction.z * 200.f);
             }
             // Subsurface Test
             else if(intersects && intersection.objectHit->hasMedium){
