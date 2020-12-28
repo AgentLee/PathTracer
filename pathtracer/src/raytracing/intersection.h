@@ -40,6 +40,8 @@ public:
                               // t is equal to the distance from the point of intersection to the ray's origin if the ray's direction is normalized.
     Primitive const * objectHit;     // The object that the ray intersected, or nullptr if the ray hit nothing.
     std::shared_ptr<BSDF> bsdf;// The Bidirection Scattering Distribution Function found at the intersection.
-
+	// TODO:
+	//std::shared_ptr<BSSRDF> bssrdf;
+	
     Vector3f tangent, bitangent; // World-space vectors that form an orthonormal basis with the surface normal.
 };

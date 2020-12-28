@@ -194,6 +194,9 @@ Color3f BSDF::Sample_f(const Vector3f &woW, Vector3f *wiW, const Point2f &xi,
 
 float BSDF::Pdf(const Vector3f &woW, const Vector3f &wiW, BxDFType flags) const
 {
+	if(numBxDFs == 0)
+		return 0.0f;
+	
     float total = 0.f;
     int count = 0;
     for(int i = 0; i < numBxDFs; ++i) {
@@ -203,11 +206,7 @@ float BSDF::Pdf(const Vector3f &woW, const Vector3f &wiW, BxDFType flags) const
         }
     }
 
-    if(count == 0) {
-        return 0.f;
-    } else {
-        return total / (float)count;
-    }
+    return total / (float)count;
 }
 
 Color3f BxDF::Sample_f(const Vector3f &wo, Vector3f *wi, const Point2f &xi,

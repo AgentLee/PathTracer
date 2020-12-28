@@ -16,7 +16,6 @@ FORMS += forms/mainwindow.ui \
 RESOURCES += glsl.qrc \
     sfx.qrc
 
-
 # Enable console on Windows so that we can actually see debug prints.
 win32 {
     CONFIG += console
@@ -33,7 +32,7 @@ macx {
     QMAKE_CXXFLAGS += -Wno-strict-aliasing
     QMAKE_CXXFLAGS += -Wno-unneeded-internal-declaration
     QMAKE_CXXFLAGS += -fno-omit-frame-pointer
-    INCLUDEPATH += C:/Program Files/boost/boost_1_58_0
+    INCLUDEPATH += C:/Program Files/boost/boost_v1_58_0
 }
 linux-clang*|linux-g++*|macx-clang*|macx-g++* {
     message("Enabling stack protector")

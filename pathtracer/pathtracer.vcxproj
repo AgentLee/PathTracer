@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{60F7A5E8-484F-395D-AC06-BB58B5FDA2BC}</ProjectGuid>
+    <RootNamespace>277</RootNamespace>
+    <Keyword>QtVS_v303</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
+  <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>277</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>277</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /><Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')"><Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." /></Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')"><Import Project="$(QtMsBuild)\qt_defaults.props" /></ImportGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"><OutDir>release\</OutDir><IntDir>release\</IntDir><TargetName>277</TargetName><IgnoreImportLibrary>true</IgnoreImportLibrary><LinkIncremental>false</LinkIncremental></PropertyGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"><OutDir>debug\</OutDir><IntDir>debug\</IntDir><TargetName>277</TargetName><IgnoreImportLibrary>true</IgnoreImportLibrary></PropertyGroup><PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'"><QtInstall>msvc2017_64</QtInstall><QtModules>core;network;gui;multimedia;widgets</QtModules></PropertyGroup><PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"><QtInstall>msvc2017_64</QtInstall><QtModules>core;network;gui;multimedia;widgets</QtModules></PropertyGroup><ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')"><Import Project="$(QtMsBuild)\qt.props" /></ImportGroup>
+  
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;include;src;debug;C:\VulkanSDK\1.1.106.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\277.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  <QtMoc><CompilerFlavor>msvc</CompilerFlavor><Include>./$(Configuration)/moc_predefs.h</Include><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><DynamicSource>output</DynamicSource><QtMocDir>$(Configuration)</QtMocDir><QtMocFileName>moc_%(Filename).cpp</QtMocFileName></QtMoc><QtRcc><Compression>default</Compression><ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription><QtRccDir>$(Configuration)</QtRccDir><QtRccFileName>qrc_%(Filename).cpp</QtRccFileName></QtRcc><QtUic><ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription><QtUicDir>$(ProjectDir)</QtUicDir><QtUicFileName>ui_%(Filename).h</QtUicFileName></QtUic></ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;include;src;release;C:\VulkanSDK\1.1.106.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\277.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  <QtMoc><CompilerFlavor>msvc</CompilerFlavor><Include>./$(Configuration)/moc_predefs.h</Include><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><DynamicSource>output</DynamicSource><QtMocDir>$(Configuration)</QtMocDir><QtMocFileName>moc_%(Filename).cpp</QtMocFileName></QtMoc><QtRcc><Compression>default</Compression><ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription><QtRccDir>$(Configuration)</QtRccDir><QtRccFileName>qrc_%(Filename).cpp</QtRccFileName></QtRcc><QtUic><ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription><QtUicDir>$(ProjectDir)</QtUicDir><QtUicFileName>ui_%(Filename).h</QtUicFileName></QtUic></ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\scene\bounds.cpp" />
+    <ClCompile Include="src\scene\materials\bsdf.cpp" />
+    <ClCompile Include="src\scene\bvh.cpp" />
+    <ClCompile Include="src\scene\camera.cpp" />
+    <ClCompile Include="src\cameracontrolshelp.cpp" />
+    <ClCompile Include="src\scene\csg.cpp" />
+    <ClCompile Include="src\scene\geometry\cube.cpp" />
+    <ClCompile Include="src\scene\lights\diffusearealight.cpp" />
+    <ClCompile Include="src\integrators\directlightingintegrator.cpp" />
+    <ClCompile Include="src\scene\geometry\disc.cpp" />
+    <ClCompile Include="src\openGL\drawable.cpp" />
+    <ClCompile Include="src\scene\lights\environmentlight.cpp" />
+    <ClCompile Include="src\raytracing\film.cpp" />
+    <ClCompile Include="src\scene\materials\fresnel.cpp" />
+    <ClCompile Include="src\integrators\fulllightingintegrator.cpp" />
+    <ClCompile Include="src\scene\materials\glassmaterial.cpp" />
+    <ClCompile Include="src\scene\geometry\glshapecreation.cpp" />
+    <ClCompile Include="src\openGL\glwidget277.cpp" />
+    <ClCompile Include="src\scene\homogenousmedium.cpp" />
+    <ClCompile Include="src\scene\geometry\implicit.cpp" />
+    <ClCompile Include="src\integrators\integrator.cpp" />
+    <ClCompile Include="src\raytracing\intersection.cpp" />
+    <ClCompile Include="src\scene\jsonreader.cpp" />
+    <ClCompile Include="src\scene\kdtree.cpp" />
+    <ClCompile Include="src\scene\materials\lambertbrdf.cpp" />
+    <ClCompile Include="src\scene\lights\light.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\mainwindow.cpp" />
+    <ClCompile Include="src\scene\materials\mattematerial.cpp" />
+    <ClCompile Include="src\scene\medium.cpp" />
+    <ClCompile Include="src\scene\geometry\mesh.cpp" />
+    <ClCompile Include="src\scene\materials\microfacet.cpp" />
+    <ClCompile Include="src\scene\materials\microfacetbrdf.cpp" />
+    <ClCompile Include="src\scene\materials\microfacetbtdf.cpp" />
+    <ClCompile Include="src\scene\materials\mirrormaterial.cpp" />
+    <ClCompile Include="src\scene\materials\mirrormaterialtwo.cpp" />
+    <ClCompile Include="src\mygl.cpp" />
+    <ClCompile Include="src\integrators\naiveintegrator.cpp" />
+    <ClCompile Include="src\noisefunctions.cpp" />
+    <ClCompile Include="src\scene\materials\orennayar.cpp" />
+    <ClCompile Include="src\integrators\photonmapping.cpp" />
+    <ClCompile Include="src\scene\materials\plasticmaterial.cpp" />
+    <ClCompile Include="src\scene\lights\pointlight.cpp" />
+    <ClCompile Include="src\scene\geometry\primitive.cpp" />
+    <ClCompile Include="src\raytracing\ray.cpp" />
+    <ClCompile Include="src\samplers\sampler.cpp" />
+    <ClCompile Include="src\scene\scene.cpp" />
+    <ClCompile Include="src\openGL\shaderprogram.cpp" />
+    <ClCompile Include="src\scene\geometry\shape.cpp" />
+    <ClCompile Include="src\scene\materials\specularbrdf.cpp" />
+    <ClCompile Include="src\scene\materials\specularbtdf.cpp" />
+    <ClCompile Include="src\scene\geometry\sphere.cpp" />
+    <ClCompile Include="src\scene\lights\spotlight.cpp" />
+    <ClCompile Include="src\scene\geometry\squareplane.cpp" />
+    <ClCompile Include="src\scene\materials\subsurface.cpp" />
+    <ClCompile Include="src\tinyobj\tiny_obj_loader.cc" />
+    <ClCompile Include="src\scene\transform.cpp" />
+    <ClCompile Include="src\scene\materials\transmissivematerial.cpp" />
+    <ClCompile Include="src\integrators\volumetricintegrator.cpp" />
+    <ClCompile Include="src\warpfunctions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\scene\bounds.h" />
+    <ClInclude Include="src\scene\materials\bsdf.h" />
+    <ClInclude Include="src\scene\bvh.h" />
+    <ClInclude Include="src\scene\camera.h" />
+    <QtMoc Include="src\cameracontrolshelp.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtMoc>
+    <ClInclude Include="src\scene\csg.h" />
+    <ClInclude Include="src\scene\geometry\cube.h" />
+    <ClInclude Include="src\scene\lights\diffusearealight.h" />
+    <ClInclude Include="src\integrators\directlightingintegrator.h" />
+    <ClInclude Include="src\scene\geometry\disc.h" />
+    <ClInclude Include=".\src\drawable.h" />
+    <ClInclude Include="src\openGL\drawable.h" />
+    <ClInclude Include="src\scene\lights\environmentlight.h" />
+    <ClInclude Include="src\raytracing\film.h" />
+    <ClInclude Include="src\scene\materials\fresnel.h" />
+    <ClInclude Include="src\integrators\fulllightingintegrator.h" />
+    <ClInclude Include="src\scene\materials\glassmaterial.h" />
+    <ClInclude Include="src\globals.h" />
+    <QtMoc Include="src\openGL\glwidget277.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtMoc>
+    <ClInclude Include="src\scene\homogenousmedium.h" />
+    <ClInclude Include="src\scene\geometry\implicit.h" />
+    <ClInclude Include="src\integrators\integrator.h" />
+    <ClInclude Include="src\raytracing\intersection.h" />
+    <ClInclude Include="src\scene\jsonreader.h" />
+    <ClInclude Include="src\scene\kdtree.h" />
+    <ClInclude Include="src\la.h" />
+    <ClInclude Include="src\scene\materials\lambertbrdf.h" />
+    <ClInclude Include="src\scene\lights\light.h" />
+    <QtMoc Include="src\mainwindow.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtMoc>
+    <ClInclude Include="src\scene\materials\material.h" />
+    <ClInclude Include="src\scene\materials\mattematerial.h" />
+    <ClInclude Include="src\scene\medium.h" />
+    <ClInclude Include="src\scene\geometry\mesh.h" />
+    <ClInclude Include="src\scene\materials\microfacet.h" />
+    <ClInclude Include="src\scene\materials\microfacetbrdf.h" />
+    <ClInclude Include="src\scene\materials\microfacetbtdf.h" />
+    <ClInclude Include="src\scene\materials\mirrormaterial.h" />
+    <ClInclude Include="src\scene\materials\mirrormaterialtwo.h" />
+    <QtMoc Include="src\mygl.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtMoc>
+    <ClInclude Include="src\integrators\naiveintegrator.h" />
+    <ClInclude Include="src\noisefunctions.h" />
+    <ClInclude Include="src\scene\materials\orennayar.h" />
+    <ClInclude Include="src\integrators\photonmapping.h" />
+    <ClInclude Include="src\scene\materials\plasticmaterial.h" />
+    <ClInclude Include="src\scene\lights\pointlight.h" />
+    <ClInclude Include="src\scene\geometry\primitive.h" />
+    <ClInclude Include="src\raytracing\ray.h" />
+    <ClInclude Include="src\samplers\sampler.h" />
+    <ClInclude Include="src\scene\scene.h" />
+    <ClInclude Include="src\openGL\shaderprogram.h" />
+    <ClInclude Include="src\scene\geometry\shape.h" />
+    <ClInclude Include="src\scene\materials\specularbrdf.h" />
+    <ClInclude Include="src\scene\materials\specularbtdf.h" />
+    <ClInclude Include="src\scene\geometry\sphere.h" />
+    <ClInclude Include="src\scene\lights\spotlight.h" />
+    <ClInclude Include="src\scene\geometry\squareplane.h" />
+    <ClInclude Include="src\scene\materials\subsurface.h" />
+    <ClInclude Include="src\tinyobj\tiny_obj_loader.h" />
+    <ClInclude Include="src\scene\transform.h" />
+    <ClInclude Include="src\scene\materials\transmissivematerial.h" />
+    <ClInclude Include="src\integrators\volumetricintegrator.h" />
+    <ClInclude Include="src\warpfunctions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    
+    
+    
+    
+    
+    
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="forms\cameracontrolshelp.ui">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtUic>
+    <QtUic Include="forms\mainwindow.ui">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\complete.wav" />
+    <None Include="glsl\flat.frag.glsl" />
+    <None Include="glsl\flat.vert.glsl" />
+    <QtRcc Include="glsl.qrc">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">glsl</InitFuncName><InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">glsl</InitFuncName></QtRcc>
+    <None Include="glsl\lambert.frag.glsl" />
+    <None Include="glsl\lambert.vert.glsl" />
+    <None Include="glsl\renderview.frag.glsl" />
+    <None Include="glsl\renderview.vert.glsl" />
+    <QtRcc Include="sfx.qrc">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sfx</InitFuncName><InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sfx</InitFuncName></QtRcc>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')"><Import Project="$(QtMsBuild)\qt.targets" /></ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

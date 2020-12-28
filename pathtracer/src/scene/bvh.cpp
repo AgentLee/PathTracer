@@ -330,7 +330,7 @@ BVHBuildNode* BVHAccel::recursiveBuild(
                 });
             } else {
                 /// Allocate BucketInfo for SAH partition buckets
-                int nBuckets = 12;
+                const int nBuckets = 12;
 
 #define MAC     // Comment this out for Windows
 #ifndef MAC
