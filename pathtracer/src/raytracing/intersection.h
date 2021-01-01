@@ -1,6 +1,7 @@
 #pragma once
 #include <globals.h>
 #include <scene/materials/bsdf.h>
+#include <scene/materials/bssrdf.h>
 #include <raytracing/ray.h>
 #include <scene/geometry/primitive.h>
 #include <QList>
@@ -9,6 +10,7 @@
 
 class Material;
 class BSDF;
+class BSSRDF;
 class Primitive;
 class Medium;
 
@@ -44,7 +46,7 @@ public:
     Primitive const * objectHit;     // The object that the ray intersected, or nullptr if the ray hit nothing.
     std::shared_ptr<BSDF> bsdf;// The Bidirection Scattering Distribution Function found at the intersection.
 	// TODO:
-	//std::shared_ptr<BSSRDF> bssrdf;
+	std::shared_ptr<BSSRDF> bssrdf;
 
 	// todo
 	Material* material;

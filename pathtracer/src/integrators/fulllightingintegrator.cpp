@@ -94,6 +94,12 @@ Color3f FullLightingIntegrator::Li(const Ray &ray, const Scene &scene, std::shar
         // Update the ray for the next bounce
         r = intersection.SpawnRay(giWi);
 
+		// TODO: also check for flags & BSDF_TRANSMISSION
+		if (intersection.bssrdf != nullptr)
+		{
+			return BLUE;
+		}
+    	
         // Russian Roulette Termination
         if (depth < recursionLimit - 3) {
             float comp = glm::max(glm::max(beta.x, beta.y), beta.z);

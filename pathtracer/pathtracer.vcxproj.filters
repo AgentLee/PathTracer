@@ -45,84 +45,60 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\Integrators">
+      <UniqueIdentifier>{af7f1c3d-acfb-4ad6-bfee-02a6d08c5fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Integrators">
+      <UniqueIdentifier>{71178443-a463-4f9f-8eae-d504ddbbf10c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OpenGL">
+      <UniqueIdentifier>{dd034c53-7849-4821-b0f4-9df9f0c3043b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OpenGL">
+      <UniqueIdentifier>{cf173040-1f2b-4917-9413-48ecb0fc8b6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RayTracing">
+      <UniqueIdentifier>{6e587268-ed94-4279-9279-28f92c93a1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RayTracing">
+      <UniqueIdentifier>{fa89f2bd-80fb-4bf8-81bc-454b92a1996e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{73ca4614-abef-4080-aaad-46a9873f740f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Geometry">
+      <UniqueIdentifier>{40ff87c8-cbe3-48df-b5d7-b0dca237ba0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Lights">
+      <UniqueIdentifier>{ff2db79e-5ac1-4592-a233-c6627a0e85d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Materials">
+      <UniqueIdentifier>{b1da4304-e6ea-4576-b600-94ad1cd89699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TinyObj">
+      <UniqueIdentifier>{995b2702-ca0d-427c-a669-c7fd4e1220d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TinyObj">
+      <UniqueIdentifier>{13a30874-a511-4b22-9362-5d63d4477593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{378fae10-7f67-4175-a808-af9265e4ae9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene\Geometry">
+      <UniqueIdentifier>{c403d976-08a1-4b52-9316-6fa5f70db7b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene\Lights">
+      <UniqueIdentifier>{76afdc2c-0701-428f-93d4-68856f50a998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene\Materials">
+      <UniqueIdentifier>{e10681f2-f639-4c9f-8b5f-b5cf4fb5be1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\scene\bounds.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\bsdf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\bvh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\cameracontrolshelp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene\csg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\cube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\lights\diffusearealight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\integrators\directlightingintegrator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\disc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\openGL\drawable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\lights\environmentlight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\raytracing\film.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\fresnel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\integrators\fulllightingintegrator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\glassmaterial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\scene\geometry\glshapecreation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\openGL\glwidget277.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\homogenousmedium.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\implicit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\integrators\integrator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\raytracing\intersection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\jsonreader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\kdtree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\lambertbrdf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\lights\light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
@@ -131,312 +107,373 @@
     <ClCompile Include="src\mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene\materials\mattematerial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\medium.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\mesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\microfacet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\microfacetbrdf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\microfacetbtdf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\mirrormaterial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\mirrormaterialtwo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\mygl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\integrators\naiveintegrator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\noisefunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene\materials\orennayar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\integrators\photonmapping.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\plasticmaterial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\lights\pointlight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\primitive.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\raytracing\ray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\samplers\sampler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\openGL\shaderprogram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\shape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\specularbrdf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\specularbtdf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\sphere.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\lights\spotlight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\geometry\squareplane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\subsurface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tinyobj\tiny_obj_loader.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\transform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scene\materials\transmissivematerial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\integrators\volumetricintegrator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\warpfunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\integrators\volumetricintegrator.cpp">
+      <Filter>Source Files\Integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="src\integrators\photonmapping.cpp">
+      <Filter>Source Files\Integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="src\integrators\naiveintegrator.cpp">
+      <Filter>Source Files\Integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="src\integrators\integrator.cpp">
+      <Filter>Source Files\Integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="src\integrators\fulllightingintegrator.cpp">
+      <Filter>Source Files\Integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="src\integrators\directlightingintegrator.cpp">
+      <Filter>Source Files\Integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="src\openGL\drawable.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\openGL\glwidget277.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\openGL\shaderprogram.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raytracing\film.cpp">
+      <Filter>Source Files\RayTracing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raytracing\ray.cpp">
+      <Filter>Source Files\RayTracing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raytracing\intersection.cpp">
+      <Filter>Source Files\RayTracing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\bounds.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\bvh.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\camera.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\csg.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\homogenousmedium.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\jsonreader.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\kdtree.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\medium.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\scene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\transform.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\cube.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\disc.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\implicit.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\mesh.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\primitive.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\sphere.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\shape.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\geometry\squareplane.cpp">
+      <Filter>Source Files\Scene\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\lights\pointlight.cpp">
+      <Filter>Source Files\Scene\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\lights\light.cpp">
+      <Filter>Source Files\Scene\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\lights\spotlight.cpp">
+      <Filter>Source Files\Scene\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\lights\environmentlight.cpp">
+      <Filter>Source Files\Scene\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\lights\diffusearealight.cpp">
+      <Filter>Source Files\Scene\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\bsdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\fresnel.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\glassmaterial.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\lambertbrdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\mattematerial.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\microfacet.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\microfacetbrdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\microfacetbtdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\mirrormaterial.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\mirrormaterialtwo.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\orennayar.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\plasticmaterial.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\specularbrdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\specularbtdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\subsurface.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\transmissivematerial.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyobj\tiny_obj_loader.cc">
+      <Filter>Source Files\TinyObj</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\materials\bssrdf.cpp">
+      <Filter>Source Files\Scene\Materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\scene\bounds.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\bsdf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\bvh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <QtMoc Include="src\cameracontrolshelp.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <ClInclude Include="src\scene\csg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\cube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\lights\diffusearealight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\integrators\directlightingintegrator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\disc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Development\pathtracer\pathtracer\src\drawable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\openGL\drawable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\lights\environmentlight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\raytracing\film.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\fresnel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\integrators\fulllightingintegrator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\glassmaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <QtMoc Include="src\openGL\glwidget277.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <ClInclude Include="src\scene\homogenousmedium.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\implicit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\integrators\integrator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\raytracing\intersection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\jsonreader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\kdtree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\la.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\scene\materials\lambertbrdf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\lights\light.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <QtMoc Include="src\mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="src\scene\materials\material.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\mattematerial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\medium.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\microfacet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\microfacetbrdf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\microfacetbtdf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\mirrormaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\mirrormaterialtwo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <QtMoc Include="src\mygl.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="src\integrators\naiveintegrator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\noisefunctions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\orennayar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\integrators\photonmapping.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\plasticmaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\lights\pointlight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\primitive.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\raytracing\ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\samplers\sampler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\scene\scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\openGL\shaderprogram.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\shape.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\specularbrdf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\specularbtdf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\sphere.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\lights\spotlight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\geometry\squareplane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\subsurface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tinyobj\tiny_obj_loader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\transform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scene\materials\transmissivematerial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\integrators\volumetricintegrator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\warpfunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include=".\src\drawable.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\directlightingintegrator.h">
+      <Filter>Header Files\Integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\fulllightingintegrator.h">
+      <Filter>Header Files\Integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\photonmapping.h">
+      <Filter>Header Files\Integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\naiveintegrator.h">
+      <Filter>Header Files\Integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\volumetricintegrator.h">
+      <Filter>Header Files\Integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\openGL\drawable.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\openGL\shaderprogram.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\raytracing\film.h">
+      <Filter>Header Files\RayTracing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\raytracing\intersection.h">
+      <Filter>Header Files\RayTracing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\raytracing\ray.h">
+      <Filter>Header Files\RayTracing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tinyobj\tiny_obj_loader.h">
+      <Filter>Header Files\TinyObj</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\bounds.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\bvh.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\camera.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\csg.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\homogenousmedium.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\jsonreader.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\kdtree.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\transform.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\cube.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\disc.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\implicit.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\mesh.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\primitive.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\shape.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\sphere.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\geometry\squareplane.h">
+      <Filter>Header Files\Scene\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\lights\light.h">
+      <Filter>Header Files\Scene\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\lights\spotlight.h">
+      <Filter>Header Files\Scene\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\lights\pointlight.h">
+      <Filter>Header Files\Scene\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\lights\environmentlight.h">
+      <Filter>Header Files\Scene\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\lights\diffusearealight.h">
+      <Filter>Header Files\Scene\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\bsdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\fresnel.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\glassmaterial.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\lambertbrdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\mattematerial.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\microfacet.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\microfacetbrdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\microfacetbtdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\mirrormaterial.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\mirrormaterialtwo.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\orennayar.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\plasticmaterial.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\specularbrdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\specularbtdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\subsurface.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\transmissivematerial.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\integrators\integrator.h">
+      <Filter>Header Files\Integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\material.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\scene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\medium.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\bssrdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\materials\subsurface_material.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    
-    
-    
-    
-    
-    
-    
-    
     <CustomBuild Include="debug\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
-    
-    
-    
-    
-    
-    
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="forms\cameracontrolshelp.ui">
@@ -474,5 +511,13 @@
     <QtRcc Include="sfx.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="src\openGL\glwidget277.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </QtMoc>
+    <QtMoc Include="src\cameracontrolshelp.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>
