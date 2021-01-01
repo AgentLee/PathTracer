@@ -12,6 +12,7 @@
 #include <scene/materials/transmissivematerial.h>
 #include <scene/materials/glassmaterial.h>
 #include <scene/materials/plasticmaterial.h>
+#include <scene/materials/subsurface_material.h>
 
 #include <scene/lights/diffusearealight.h>
 #include <scene/lights/pointlight.h>
@@ -440,6 +441,18 @@ bool JSONReader::LoadMaterial(QJsonObject &material, const QStringRef &local_pat
         auto result = std::make_shared<PlasticMaterial>(Kd, Ks, roughness, roughnessMap, textureMapDiffuse, textureMapSpecular, normalMap);
         mtl_map->insert(material["name"].toString(), result);
     }
+	else if(Compare(type, "SubsurfaceMaterial"))
+	{
+		auto kd = GetValue(material, "Kd", glm::vec3(1.0f));	// albedo
+		auto kr = GetValue(material, "Kr", glm::vec3(1.0f));	// reflectance
+		auto kt = GetValue(material, "Kt", glm::vec3(1.0f));	// transmittance
+		auto eta = GetValue(material, "eta", 1.33f);
+		auto sigma_a = GetValue(material, "sigmaA", glm::vec3(0.0011, 0.0024, 0.14));	// absorption coeff
+		auto sigma_s = GetValue(material, "sigmaS", glm::vec3(2.55, 3.12, 3.77));		// scattering coeff
+
+		auto result = std::make_shared<SubsurfaceMaterial>(kd, kt, kr, eta, sigma_a, sigma_s);
+		mtl_map->insert(material["name"].toString(), result);
+	}
     else
     {
         std::cout << "Could not parse the material!" << std::endl;
