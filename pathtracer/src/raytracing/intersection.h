@@ -33,6 +33,9 @@ public:
     // travels in direction d.
     Ray SpawnRay(const Vector3f &d) const;
 
+	// TODO set this
+	Vector3f wo;
+	
     Point3f point;          // The place at which the intersection occurred
     Normal3f normalGeometric; // The surface normal at the point of intersection, NO alterations like normal mapping applied
     Point2f uv;             // The UV coordinates computed at the intersection
@@ -42,6 +45,9 @@ public:
     std::shared_ptr<BSDF> bsdf;// The Bidirection Scattering Distribution Function found at the intersection.
 	// TODO:
 	//std::shared_ptr<BSSRDF> bssrdf;
+
+	// todo
+	Material* material;
 	
     Vector3f tangent, bitangent; // World-space vectors that form an orthonormal basis with the surface normal.
 };

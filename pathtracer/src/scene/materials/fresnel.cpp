@@ -1,42 +1,53 @@
 #include "fresnel.h"
 
+float FresnelDielectric::EvaulateF(float cosThetaI) const
+{
+	cosThetaI = glm::clamp(cosThetaI, -1.f, 1.f);
+
+	bool entering = cosThetaI > 0.f;
+
+	if (!entering) {
+		cosThetaI = std::abs(cosThetaI);
+
+		// swap etaT and etaI
+	}
+
+	float sinThetaI = std::sqrt(std::max(0.f, 1 - cosThetaI * cosThetaI));
+
+	float sinThetaT = etaI / etaT * sinThetaI;
+
+	// swap since you couldn't do it before
+	// because etaI and etaT are const
+	if (!entering) {
+		sinThetaT = etaT / etaI * sinThetaI;
+	}
+
+	// Total Internal Reflection
+	if (sinThetaT >= 1.f) {
+		return 1.f;
+	}
+
+	float cosThetaT = std::sqrt(std::max(0.f, 1 - sinThetaT * sinThetaT));
+
+	float Rparl = ((etaT * cosThetaI) - (etaI * cosThetaT)) / ((etaT * cosThetaI) + (etaI * cosThetaT));
+	float Rperp = ((etaI * cosThetaI) - (etaT * cosThetaT)) / ((etaI * cosThetaI) + (etaT * cosThetaT));
+
+	float fr = Rparl * Rparl;
+	fr += Rperp * Rperp;
+	fr /= 2.f;
+
+	return fr;
+}
+
 Color3f FresnelDielectric::Evaluate(float cosThetaI) const
 {
-    cosThetaI = glm::clamp(cosThetaI, -1.f, 1.f);
+    return Color3f(EvaulateF(cosThetaI));
+}
 
-    bool entering = cosThetaI > 0.f;
-
-    if(!entering) {
-        cosThetaI = std::abs(cosThetaI);
-
-        // swap etaT and etaI
-    }
-
-    float sinThetaI = std::sqrt(std::max(0.f, 1 - cosThetaI * cosThetaI));
-
-    float sinThetaT = etaI / etaT * sinThetaI;
-
-    // swap since you couldn't do it before
-    // because etaI and etaT are const
-    if(!entering) {
-        sinThetaT = etaT / etaI * sinThetaI;
-    }
-
-    // Total Internal Reflection
-    if(sinThetaT >= 1.f) {
-        return Color3f(1.f);
-    }
-
-    float cosThetaT = std::sqrt(std::max(0.f, 1 - sinThetaT * sinThetaT));
-
-    float Rparl = ((etaT * cosThetaI) - (etaI * cosThetaT)) / ((etaT * cosThetaI) + (etaI * cosThetaT));
-    float Rperp = ((etaI * cosThetaI) - (etaT * cosThetaT)) / ((etaI * cosThetaI) + (etaT * cosThetaT));
-
-    float fr = Rparl * Rparl;
-    fr += Rperp * Rperp;
-    fr /= 2.f;
-
-    return Color3f(fr);
+float FresnelConductor::EvaulateF(float cosThetaI) const
+{
+	// TODO
+	return 0.0f;
 }
 
 Color3f FresnelConductor::Evaluate(float cosThetaI) const

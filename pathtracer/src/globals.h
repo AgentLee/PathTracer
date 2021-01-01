@@ -49,6 +49,8 @@ typedef glm::ivec2 Vector2i;
 typedef glm::mat4 Matrix4x4;
 typedef glm::mat3 Matrix3x3;
 
+static const Color3f Black = Color3f(0.0f);
+
 // A cheap way of storing the minimum and maximum bounds of a 2D box
 struct Bounds2i : public glm::ivec4
 {

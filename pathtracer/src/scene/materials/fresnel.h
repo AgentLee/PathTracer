@@ -10,9 +10,10 @@
 // of this surface compared to its other BxDF colors?"
 class Fresnel {
  public:
-   // Fresnel Interface
-   virtual ~Fresnel(){}
-   virtual Color3f Evaluate(float cosI) const = 0;
+	// Fresnel Interface
+	virtual ~Fresnel(){}
+	virtual float EvaulateF(float cosI) const = 0;
+	virtual Color3f Evaluate(float cosI) const = 0;
 };
 
 // A Fresnel class that always returns 100% reflection regardless of ray direction
@@ -20,11 +21,13 @@ class Fresnel {
 // implementations
 class FresnelNoOp : public Fresnel {
   public:
-    Color3f Evaluate(float) const { return Color3f(1.); }
+	float EvaulateF(float) const { return 1.0f; };
+    Color3f Evaluate(float) const { return Color3f(1.0f); }
 };
 
 class FresnelNoReflect : public Fresnel {
 public:
+	float EvaulateF(float) const { return 0.0f; };
     Color3f Evaluate(float) const { return Color3f(0.f); }
 };
 
@@ -33,7 +36,8 @@ public:
 class FresnelDielectric : public Fresnel {
   public:
     FresnelDielectric(float etaI, float etaT) : etaI(etaI), etaT(etaT) {}
-    Color3f Evaluate(float cosThetaI) const;
+	float EvaulateF(float cosThetaI) const;
+	Color3f Evaluate(float cosThetaI) const;
 
   private:
     Float etaI, etaT; // The index of refraction of the medium through which the incident ray
@@ -50,7 +54,8 @@ class FresnelDielectric : public Fresnel {
 class FresnelConductor : public Fresnel {
   public:
     FresnelConductor(float etaI, float etaT) : etaI(etaI), etaT(etaT) {}
-    Color3f Evaluate(float cosThetaI) const;
+	float EvaulateF(float cosThetaI) const;
+	Color3f Evaluate(float cosThetaI) const;
 
   private:
     Color3f etaI, etaT; // The index of refraction of the medium through which the incident ray

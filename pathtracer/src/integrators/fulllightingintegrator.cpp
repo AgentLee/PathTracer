@@ -49,7 +49,8 @@ Color3f FullLightingIntegrator::Li(const Ray &ray, const Scene &scene, std::shar
             break;
         }
 
-        // Check to see if the ray hits an object with a BSDF
+        // Check to see if the ray hits an object with a BSDF.
+    	// A null BSDF means that the surface has no effect from the light.
         bool producedBSDF = intersection.ProduceBSDF();
         if (!producedBSDF) {
             if (depth == recursionLimit || specularBounce) {
