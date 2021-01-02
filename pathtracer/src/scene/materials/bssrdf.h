@@ -1,13 +1,12 @@
 #pragma once
 #include <globals.h>
 #include <raytracing/intersection.h>
-
 #include "fresnel.h"
-//#include "scene/scene.h"
+#include "bxdf.h"
 
 class Intersection;
-class BxDF;
 class Scene;
+class BxDF;
 
 // 3 color channels
 #define NUM_CHANNELS 3
