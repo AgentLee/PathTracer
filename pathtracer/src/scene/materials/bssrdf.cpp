@@ -27,154 +27,84 @@ Float FresnelMoment2(Float eta) {
 	}
 }
 
-//Color3f SeparableBSSRDF::S(const Intersection& pi, const Vector3f& wi)
-//{
-//	auto cosDotI = glm::dot(po.normalGeometric, po.wo);
-//	auto Ft = 1 - fresnel.EvaulateF(cosDotI);
-//	return Ft * Sp(pi) * Sw(wi);
-//}
-//
-//Color3f SeparableBSSRDF::Sw(const Vector3f& w) const
-//{
-//	float c = 1 - 2 * FresnelMoment1(1 / eta);
-//	auto fr = fresnel.Evaluate(CosTheta(w));
-//	return (1.0f - fr) / (c * Pi);
-//}
-//
-//Color3f SeparableBSSRDF::Sp(const Intersection& pi) const
-//{
-//	return Sr(glm::distance(po.point, pi.point));
-//}
-//
-//Color3f SeparableBSSRDF::Sample_S(const Scene& scene, float u1, const Point2f& u2, Intersection* isect,
-//	float* pdf) const
-//{
-//	return Color3f(0.0f);
-//}
-//
-//Color3f SeparableBSSRDF::Sample_Sp(const Scene& scene, float u1, const Point2f& u2, Intersection* isect,
-//	float* pdf) const
-//{
-//	// Choose projection axis to sample.
-//	Vector3f x, y, z;
-//	if(u1 < 0.5f)
-//	{
-//		// Sample with respect to ns (normal) at Z.
-//		// This is the best sample option.
-//		x = ss;
-//		y = ts;
-//		z = Vector3f(ns);
-//
-//		u1 *= 2.0f;
-//	}
-//	else if(u1 < 0.75f)
-//	{
-//		// Sample with respect to ss (bitangent) at Z.
-//		x = ts;
-//		y = Vector3f(ns);
-//		z = ss;
-//
-//		u1 = (u1 - 0.5f)* 4.0f;
-//	}
-//	else
-//	{
-//		// Sample with respect to ts (tangent) at Z.
-//		x = ss;
-//		y = Vector3f(ns);
-//		z = ts;
-//
-//		u1 = (u1 - 0.75f) * 4.0f;
-//	}
-//
-//	// Choose spectral (color) channel for sampling.
-//	// We have 3 color channels - https://github.com/gao-duan/EDXRay/blob/master/EDXRay/Core/BSSRDF.cpp
-//	auto ch = glm::clamp((u1 * NUM_CHANNELS), 0.0f, 1.0f);
-//	u1 = u1 * 3.0f - ch;
-//
-//	// Sample BSSRDF profile in polar coordinates.
-//	float r = Sample_Sr(ch, u2.x);
-//	if(r < 0.0f)
-//		return BLACK;
-//	float phi = 2.0f * Pi * u2.x;
-//
-//	// Compute BSSRDF profile bounds and intersection height.
-//	float rMax = Sample_Sr(ch, 0.999f);
-//	if(r > rMax)
-//		return BLACK;
-//	float l = 2.0f * sqrt(rMax * rMax - r * r);
-//
-//	// Compute BSSRDF ray sampling segment.
-//	Intersection base;
-//	base.point = po.point + r * (x * cos(phi) + y * sin(phi)) - l * z  * 0.5f;
-//	Point3f target = base.point + l * z;
-//
-//	// Shoot the BSSRDF ray into the scene.
-//	struct IntersectionChain
-//	{
-//		Intersection isect;
-//		IntersectionChain* next = nullptr;
-//	};
-//
-//	// A little skeptical if this will work. Might have to allocate it to an actual size.
-//	IntersectionChain* chain = new IntersectionChain();
-//	auto ptr = chain;
-//	int numIsx = 0;
-//
-//	// As long as we keep hitting something and it's the same material, we add it to the chain.
-//	auto ray = base.SpawnRay(target);
-//	while(scene.Intersect(ray, &base))
-//	{
-//		base = ptr->isect;
-//		if(ptr->isect.material == material)
-//		{
-//			auto* next = new IntersectionChain();
-//			ptr->next = next;
-//			ptr = next;
-//			numIsx++;
-//		}
-//	}
-//
-//	// Randomly choose one of the intersections to sample.
-//	if(numIsx == 0)
-//	{
-//		return BLACK;		
-//	}
-//
-//	int selected = glm::clamp((int)(u1 * numIsx), 0, numIsx - 1);
-//	while(selected-- > 0)
-//	{
-//		chain = chain->next;
-//	}
-//	*isect = chain->isect;
-//
-//	// Compute sample PDF and return Sp
-//	*pdf = Pdf_Sp(*isect) / numIsx;
-//	return Sp(*isect);
-//}
-//
-//float SeparableBSSRDF::Pdf_Sp(const Intersection& isect) const
-//{
-//	auto d = isect.point - po.point;
-//	auto dLocal = Vector3f(glm::dot(ss, d), glm::dot(ts, d), glm::dot(ns, d));
-//	auto nLocal = Normal3f(glm::dot(ss, isect.normalGeometric), glm::dot(ts, isect.normalGeometric), glm::dot(ns, isect.normalGeometric));
-//
-//	// Profile radius under each axis
-//	float rProj[3] = {	sqrt(dLocal.y * dLocal.y + dLocal.z * dLocal.z),
-//						sqrt(dLocal.z * dLocal.z + dLocal.x * dLocal.x),
-//						sqrt(dLocal.x * dLocal.x + dLocal.y * dLocal.y)
-//	};
-//
-//	// Return probability
-//	float pdf = 0.0f;
-//	float axisProb[3] = { 0.25f, 0.25f, 0.5f };
-//	float chProb = 1.0f / NUM_CHANNELS;
-//	for(int axis = 0; axis < 3; ++axis)
-//	{
-//		for(int ch = 0; ch < NUM_CHANNELS; ++ch)
-//		{
-//			pdf += Pdf_Sr(ch, rProj[axis]) * abs(nLocal[axis]) * chProb * axisProb[axis];
-//		}
-//	}
-//	
-//	return pdf;
-//}
+// Why are there some forward declaration issues in the header????
+BSSRDF::BSSRDF(const Intersection& po, float eta) : po(po), eta(eta)
+{
+	if (po.point.x == 0)
+		printf("SDLJ");
+}
+
+SeparableBSSRDF::SeparableBSSRDF(const Intersection& po, float eta) :
+	BSSRDF(po, eta)
+	, fresnel(1, eta)
+	, ns(po.normalGeometric)
+	, ts(po.tangent)
+	, ss(po.bitangent)
+{
+}
+
+Color3f SeparableBSSRDF::S(const Intersection& pi, const Vector3f& wi)
+{
+	return BLUE;
+}
+
+Color3f SeparableBSSRDF::Sample_S(const Scene& scene, float u1, const Point2f& u2, Intersection* isect, float* pdf)
+{
+	auto S = Sample_Sp(scene, u1, u2, isect, pdf);
+	if (!IsBlack(S))
+	{
+		// Add bxdf?
+		return S;
+	}
+	else
+	{
+		return WHITE;
+	}
+}
+
+Color3f SeparableBSSRDF::Sw(const Vector3f& w) const
+{
+	//float c = 1 - 2 * FresnelMoment1(1 / eta);
+	//return (1 - FrDielectric(CosTheta(w), 1, eta)) / (c * Pi);
+	return BLACK;
+}
+
+Color3f SeparableBSSRDF::Sp(const Intersection& pi) const
+{
+	return BLACK;
+}
+
+Color3f SeparableBSSRDF::Sample_Sp(const Scene& scene, float u1, const Point2f& u2, Intersection* isect,
+	float* pdf) const
+{
+	return BLACK;
+}
+
+float SeparableBSSRDF::Pdf_Sp(const Intersection& isect) const
+{
+	return 0;
+}
+
+JensenBSSRDF::JensenBSSRDF(const Intersection& po, float eta, const Color3f sigmaA, const Color3f sigmaS) :
+	SeparableBSSRDF(po, eta)
+	, sigmaA(sigmaA)
+	, sigmaS(sigmaS)
+	, sigmaT(sigmaA + sigmaS)
+{
+	// todo rho
+}
+
+Color3f JensenBSSRDF::Sr(float d) const
+{
+	return BLACK;
+}
+
+float JensenBSSRDF::Sample_Sr(int ch, float u) const
+{
+	return 0;
+}
+
+float JensenBSSRDF::Pdf_Sr(int ch, float r) const
+{
+	return 0;
+}
