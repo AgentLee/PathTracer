@@ -1,4 +1,5 @@
 #include "bssrdf.h"
+#include "scene/scene.h"
 
 // Straight from PBRT
 Float FresnelMoment1(Float eta) {
@@ -53,36 +54,160 @@ Color3f SeparableBSSRDF::Sample_S(const Scene& scene, float u1, const Point2f& u
 	auto S = Sample_Sp(scene, u1, u2, isect, pdf);
 	if (!IsBlack(S))
 	{
-		// Add bxdf?
-		return S;
+		// Need to add a dummy BSDF
+		isect->bsdf->Add(new SeparableBSSRDFAdapter(this));
+		isect->wo = isect->normalGeometric;
 	}
-	else
-	{
-		return WHITE;
-	}
+
+	return S;
 }
 
 Color3f SeparableBSSRDF::Sw(const Vector3f& w) const
 {
-	//float c = 1 - 2 * FresnelMoment1(1 / eta);
-	//return (1 - FrDielectric(CosTheta(w), 1, eta)) / (c * Pi);
-	return BLACK;
+	float c = 1 - 2 * FresnelMoment1(1 / eta);
+	return (glm::vec3(1) - fresnel.Evaluate(CosTheta(w))) / (c * Pi);
 }
 
 Color3f SeparableBSSRDF::Sp(const Intersection& pi) const
 {
-	return BLACK;
+	return Sr(glm::distance(pi.point, po.point));
 }
 
+// Find exit point to sample after bouncing around inside the material.
+// Jensen paper doesn't go over how to importance sample.
+// King paper describes the disk sampling method which is also used in PBRT.
 Color3f SeparableBSSRDF::Sample_Sp(const Scene& scene, float u1, const Point2f& u2, Intersection* isect,
 	float* pdf) const
 {
-	return BLACK;
+	// Pick an axis to sample from. It's biased towards the normal.
+	Vector3f vx, vy, vz;
+	if(u1 < 0.5f)
+	{
+		vx = ss;
+		vy = ts;
+		vz = ns;
+		u1 *= 2.0f;
+	}
+	else if(u1 < 0.75f)
+	{
+		vx = ts;
+		vy = ns;
+		vz = ss;
+		u1 = (u1 - 0.5f) * 4.0f;
+	}
+	else
+	{
+		vx = ns;
+		vy = ss;
+		vz = ts;
+		u1 = (u1 - 0.75f) * 4.0f;
+	}
+
+	// Pick one of the color channels to sample from.
+	int ch = glm::clamp((int)(u1 * NUM_CHANNELS), 0, NUM_CHANNELS - 1);
+	u1 = u1 * NUM_CHANNELS - ch;
+
+	// Sample BSSRDF profile in polar coordinates.
+	// Sample_Sr is virtual so it'll go to the derived implementation of it.
+	float r = Sample_Sr(ch, u1);
+	if(r < 0)
+		return BLACK;
+	float phi = 2.0f * Pi * u2.y;
+
+	// I can't get past this check. :/
+	
+	// Compute BSSRDF profile bounds and intersection height.
+	float rMax = Sample_Sr(ch, 0.999f);
+	if(r >= rMax)
+		return BLACK;
+	float l = 2.0f * sqrt(rMax * rMax - r * r);
+
+	// Compute BSSRDF sampling ray segment.
+	Intersection base;
+	base.point= po.point + r * (vx * cos(phi) + vy * sin(phi)) - l * vz * 0.5f;
+	auto pTarget = base.point + l * vz;
+
+	struct IntersectionChain
+	{
+		Intersection si;
+		IntersectionChain* next = nullptr;
+	};
+	
+	IntersectionChain* chain = new IntersectionChain();
+	IntersectionChain* ptr = chain;
+	int numIsx = 0;
+	
+	// Shoot the BSSRDF ray into the scene.
+	// Accumulate intersections along the ray.
+	while(true)
+	{
+		Ray r = base.SpawnRay(pTarget);
+		auto intersects = scene.Intersect(r, &ptr->si);
+		if(!intersects || r.direction == Vector3f(0.0f))
+		{
+			break;
+		}
+
+		base = ptr->si;
+
+		if(po.objectHit->material == ptr->si.objectHit->material)
+		{
+			auto* next = new IntersectionChain();
+			ptr->next = next;
+			ptr = next;
+			numIsx++;
+		}
+	}
+
+	// Choose one of the intersections.
+	{
+		if (numIsx == 0)
+			return BLACK;
+
+		int selected = glm::clamp((int)(u1* numIsx), 0, numIsx - 1);
+		while (selected-- > 0)
+		{
+			chain = chain->next;
+		}
+
+		*isect = std::move(chain->si);
+
+		// todo delete linked list
+	}
+	
+	// Compute pdf.
+	*pdf = Pdf_Sp(*isect) / numIsx;
+
+	// Return spatial profile. 
+	return Sp(*isect);
 }
 
-float SeparableBSSRDF::Pdf_Sp(const Intersection& isect) const
+// Returns the probability of picking exit point.
+float SeparableBSSRDF::Pdf_Sp(const Intersection& pi) const
 {
-	return 0;
+	using namespace glm;
+	
+	auto d = pi.point - po.point;
+	auto dLocal = Vector3f(dot(ss, d), dot(ts, d), dot(ns, d));
+	auto nLocal = Vector3f(dot(ss, pi.normalGeometric), dot(ts, pi.normalGeometric), dot(ns, pi.normalGeometric));
+
+	// Profile radius under projection along each axis.
+	float rProj[3] = {	std::sqrt(dLocal.y * dLocal.y + dLocal.z * dLocal.z),
+						std::sqrt(dLocal.z * dLocal.z + dLocal.x * dLocal.x),
+						std::sqrt(dLocal.x * dLocal.x + dLocal.y * dLocal.y) };
+
+	float pdf = 0;
+	float axisProb[3] = { .25f, .25f, .5f };
+	float chProb = 1.0f / NUM_CHANNELS;
+	for(int axis = 0; axis < 3; ++axis)
+	{
+		for(int ch = 0; ch < NUM_CHANNELS; ++ch)
+		{
+			pdf += Pdf_Sr(ch, rProj[axis]) * std::abs(nLocal[axis]) * chProb * axisProb[axis];
+		}
+	}
+	
+	return pdf;
 }
 
 JensenBSSRDF::JensenBSSRDF(const Intersection& po, float eta, const Color3f sigmaA, const Color3f sigmaS) :
@@ -101,10 +226,47 @@ Color3f JensenBSSRDF::Sr(float d) const
 
 float JensenBSSRDF::Sample_Sr(int ch, float u) const
 {
-	return 0;
+	// TODO
+	// Err not really following PBRT for this.
+	// 1 / sigmaT is directly from Jensen.
+	//auto st = sigmaT[ch];
+	//return st >  0 ? (1 / st) : -1;
+
+	//https://github.com/JiayinCao/SORT/blob/379a900b8d8f9832ed10518b2807784bd6405d08/src/scatteringevent/bsdf/disney.cpp
+	float ret = 0;
+	auto st = sigmaT[ch];
+	if(u < 0.25f)
+	{
+		ret = -st * log(4.0f * u);
+	}
+	else
+	{
+		ret = -3.0f * st * log((u - .25f) * 1.3333f);
+	}
+
+	if(ret > 16 * st)
+	{
+		return -1;
+	}
+	else
+	{
+		return ret;
+	}
 }
 
 float JensenBSSRDF::Pdf_Sr(int ch, float r) const
 {
 	return 0;
+}
+
+SeparableBSSRDFAdapter::SeparableBSSRDFAdapter(const SeparableBSSRDF* bssrdf) :
+	BxDF(BxDFType(BSDF_REFLECTION | BSDF_DIFFUSE)),
+	bssrdf(bssrdf)
+{}
+
+Color3f SeparableBSSRDFAdapter::f(const Vector3f& woW, const Vector3f& wiW) const
+{
+	auto f = bssrdf->Sw(wiW);
+	// account for transport mode?
+	return f;
 }

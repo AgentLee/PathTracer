@@ -278,6 +278,7 @@
     <ClInclude Include="src\scene\lights\environmentlight.h" />
     <ClInclude Include="src\raytracing\film.h" />
     <ClInclude Include="src\scene\materials\bssrdf.h" />
+    <ClInclude Include="src\scene\materials\bxdf.h" />
     <ClInclude Include="src\scene\materials\fresnel.h" />
     <ClInclude Include="src\integrators\fulllightingintegrator.h" />
     <ClInclude Include="src\scene\materials\glassmaterial.h" />

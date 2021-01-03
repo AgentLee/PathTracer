@@ -97,7 +97,30 @@ Color3f FullLightingIntegrator::Li(const Ray &ray, const Scene &scene, std::shar
 		// TODO: also check for flags & BSDF_TRANSMISSION
 		if (intersection.bssrdf != nullptr)
 		{
-			return BLUE;
+			Intersection pi = Intersection();
+
+			// Which pdf to use? 
+			auto S = intersection.bssrdf->Sample_S(scene, sampler->Get1D(), sampler->Get2D(), &pi, &giPdf);
+			if(IsBlack(S) || giPdf == 0.0f)
+				break;
+
+			// TODO: remove
+			if(pi.bsdf == nullptr)
+				return GREEN;
+			
+			L += beta * EstimateDirectLighting(r, scene, sampler, pi);
+
+			auto f = pi.bsdf->Sample_f(pi.wo, &giWi, sampler->Get2D(), &giPdf, BSDF_ALL, &giSampledType);
+			if(IsBlack(f) || giPdf == 0.0f)
+				break;
+
+			beta *= f * AbsDot(giWi, pi.normalGeometric) / giPdf;
+
+			specularBounce = (giSampledType & BSDF_SPECULAR) != 0;
+
+			r = pi.SpawnRay(giWi);
+			
+			return S;
 		}
     	
         // Russian Roulette Termination

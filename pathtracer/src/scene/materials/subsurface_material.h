@@ -16,7 +16,7 @@ public:
 		Kd(Kd), Kt(Kt), Kr(Kr), eta(eta), sigmaA(sigmaA), sigmaS(sigmaS)
 	{}
 
-	void ProduceBSDF(Intersection *isect) const
+	void ProduceBSDF(Intersection *isect) const override
 	{
 		// PBRT created TabulatedBSSRDF for this.
 		// It's pretty complicated so let's try to avoid it

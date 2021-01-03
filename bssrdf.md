@@ -51,13 +51,16 @@ As the scattering coefficients increase, the more opaque the object gets.
 - There are three components to the BSSRDF
     - Fresnel probability
         - We only want to sample rays transmitted through the surface
+        - Energy lost when the rays bounce around and *leave* the surface (graphics guy)
     - Spatial/radial profile function *Sp = Sr*
         - `Sample_Sp()` which is called from `Sample_S()` and finds the exit point
         - This also has sample the color channels for spectral variation
         - Creates a linked list of intersections 
             - We randomly choose one 
+        - Approximate falloff factor between entry and exit points (graphics guy)
     - Sample weight *Sw* is a diffuse like term scaled by fresnel
         - I think this samples the BxDF
+        - Light energy lost from light *entering* the surface (graphics guy)
 
 ### 15.4.2: Sampling the TabulatedBSSRDF
 

@@ -466,6 +466,9 @@
     <ClInclude Include="src\scene\materials\subsurface_material.h">
       <Filter>Header Files\Scene\Materials</Filter>
     </ClInclude>
+    <ClInclude Include="src\scene\materials\bxdf.h">
+      <Filter>Header Files\Scene\Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
