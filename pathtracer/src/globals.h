@@ -20,6 +20,7 @@ static const float ShadowEpsilon = 0.0001f;
 static const float RayEpsilon = 0.000005f;
 static const float Pi = 3.14159265358979323846;
 static const float TwoPi = 6.28318530717958647692;
+static const float FourPi = TwoPi * 2.0f;
 static const float InvPi = 0.31830988618379067154;
 static const float Inv2Pi = 0.15915494309189533577;
 static const float Inv4Pi = 0.07957747154594766788;

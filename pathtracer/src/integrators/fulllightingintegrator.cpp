@@ -104,11 +104,8 @@ Color3f FullLightingIntegrator::Li(const Ray &ray, const Scene &scene, std::shar
 			if(IsBlack(S) || giPdf == 0.0f)
 				break;
 
-			// TODO: remove
-			if(pi.bsdf == nullptr)
-				return GREEN;
-			
-			L += beta * EstimateDirectLighting(r, scene, sampler, pi);
+			auto dl = EstimateDirectLighting(r, scene, sampler, pi);
+			L += beta * dl;
 
 			auto f = pi.bsdf->Sample_f(pi.wo, &giWi, sampler->Get2D(), &giPdf, BSDF_ALL, &giSampledType);
 			if(IsBlack(f) || giPdf == 0.0f)
@@ -119,8 +116,6 @@ Color3f FullLightingIntegrator::Li(const Ray &ray, const Scene &scene, std::shar
 			specularBounce = (giSampledType & BSDF_SPECULAR) != 0;
 
 			r = pi.SpawnRay(giWi);
-			
-			return S;
 		}
     	
         // Russian Roulette Termination

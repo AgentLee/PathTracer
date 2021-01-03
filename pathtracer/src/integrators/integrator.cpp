@@ -143,7 +143,10 @@ Color3f Integrator::EstimateDirectLighting(const Ray &r, const Scene &scene, std
     }
 
     lightColor = ((lightWeight * lightLte) + (bsdfWeight * bsdfLte)) * float(numLights);
-
+	lightColor = WHITE / 5.0f;
+	//if(IsBlack(lightColor))
+	//	printf("debug");
+	
     return lightColor;
 }
 

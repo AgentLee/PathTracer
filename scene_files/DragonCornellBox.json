@@ -8,8 +8,8 @@
         "eye" : [0, 25, -50],
         "worldUp" : [0, 1, 0],
         "fov" : 8,
-        "width" : 1024,
-        "height": 1024,
+        "width" : 400,
+        "height": 400,
         "lensRadius": 0,
         "focalDistance": 0
       },
@@ -69,7 +69,7 @@
           "shape" : "Mesh",
           "name" : "Buddha",
           "filename" : "obj_files/StanfordDragon.obj",
-          "material" : "matteWhite",
+          "material" : "subsurface",
           "transform" : {
             "translate" : [0, -2.5, 1.5],
             "rotate" : [0,200,0],
@@ -83,7 +83,7 @@
           "name" : "Light Source Yellow",
           "type" : "DiffuseAreaLight",
           "lightColor" : [17,12,4],
-          "intensity" : 1,
+          "intensity" : 5,
           "transform" : {
             "translate" : [2,7.45,0],
             "rotate" : [90,0,0],
@@ -97,7 +97,7 @@
           "name" : "Light Source Blue",
           "type" : "DiffuseAreaLight",
           "lightColor" : [4,12,17],
-          "intensity" : 1,
+          "intensity" : 5,
           "transform" : {
             "translate" : [-2,7.45,0],
             "rotate" : [90,0,0],
@@ -132,6 +132,16 @@
           "Kt": [1, 1, 1],
           "Kr": [1,1,1],
           "eta": 1.55
+        },
+        {
+          "type" : "SubsurfaceMaterial",
+          "name" : "subsurface",
+          "Kd" : [0, 1, 0],
+          "Kr" : [0, 1, 0],
+          "Kt" : [0, 1, 0],
+          "sigmaA": [0.0021, 0.0041, 0.0071],
+          "sigmaS": [ 2.19,2.62,3.00],
+          "eta":1.33
         }
       ]
     }

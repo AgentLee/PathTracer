@@ -58,6 +58,7 @@ As the scattering coefficients increase, the more opaque the object gets.
         - Creates a linked list of intersections 
             - We randomly choose one 
         - Approximate falloff factor between entry and exit points (graphics guy)
+        - Diffusion profile
     - Sample weight *Sw* is a diffuse like term scaled by fresnel
         - I think this samples the BxDF
         - Light energy lost from light *entering* the surface (graphics guy)

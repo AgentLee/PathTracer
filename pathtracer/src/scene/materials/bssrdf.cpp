@@ -54,6 +54,7 @@ Color3f SeparableBSSRDF::Sample_S(const Scene& scene, float u1, const Point2f& u
 	auto S = Sample_Sp(scene, u1, u2, isect, pdf);
 	if (!IsBlack(S))
 	{
+		isect->bsdf = std::make_shared<BSDF>(*isect, eta);
 		// Need to add a dummy BSDF
 		isect->bsdf->Add(new SeparableBSSRDFAdapter(this));
 		isect->wo = isect->normalGeometric;
@@ -118,6 +119,7 @@ Color3f SeparableBSSRDF::Sample_Sp(const Scene& scene, float u1, const Point2f& 
 	
 	// Compute BSSRDF profile bounds and intersection height.
 	float rMax = Sample_Sr(ch, 0.999f);
+	rMax = 16.0f;
 	if(r >= rMax)
 		return BLACK;
 	float l = 2.0f * sqrt(rMax * rMax - r * r);
@@ -177,6 +179,7 @@ Color3f SeparableBSSRDF::Sample_Sp(const Scene& scene, float u1, const Point2f& 
 	
 	// Compute pdf.
 	*pdf = Pdf_Sp(*isect) / numIsx;
+	*pdf = 0.5;
 
 	// Return spatial profile. 
 	return Sp(*isect);
@@ -221,7 +224,35 @@ JensenBSSRDF::JensenBSSRDF(const Intersection& po, float eta, const Color3f sigm
 
 Color3f JensenBSSRDF::Sr(float d) const
 {
-	return BLACK;
+	// TODO
+	using namespace glm;
+
+	auto alphaPrime = sigmaS / sigmaT;
+	auto D = 1.0f / (3.0f * sigmaT);
+	auto sigmaTr = sqrt(3.0f * sigmaA * sigmaT);
+
+	auto Fdr = [this]()
+	{
+		return (-1.440f / pow(eta, 2.0f)) + (0.710f / eta) + 0.668f + (0.0636f * eta);
+	};
+
+	auto A = (1 + Fdr()) / (1 - Fdr());
+	
+	auto zr = 1.0f / sigmaT;
+	auto zv = zr + (4 * A * D);
+	auto dr = sqrt(zr * zr + d * d);
+	auto dv = sqrt(zv * zv + d * d);
+
+	auto fadeTerm = sigmaTr * dr + 1.0f;	// rename?
+	auto leftFrac = exp(-sigmaTr * dr) / (sigmaT * dr * dr * dr);
+	auto lhs = fadeTerm * leftFrac;
+	auto rightFrac = exp(-sigmaTr * dv) / (sigmaTr * dv * dv * dv);
+	auto rhs = zv * fadeTerm * rightFrac;
+
+	auto Rd = (alphaPrime / FourPi) * (lhs + rhs);
+
+	float scale = 1;
+	return scale * Rd;
 }
 
 float JensenBSSRDF::Sample_Sr(int ch, float u) const
